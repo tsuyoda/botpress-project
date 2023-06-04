@@ -6,6 +6,8 @@ services:
     restart: always
     ports: 
       - 3000:3000
+    networks:
+      - net
   nginx:
     image: nginx:1.23.1-alpine
     restart: always
@@ -15,3 +17,9 @@ services:
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - /etc/letsencrypt/:/etc/letsencrypt/:ro
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge
