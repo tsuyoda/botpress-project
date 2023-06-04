@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  bot:
+  botpress:
     image: botpress/server:v12_30_8
     restart: always
     ports: 
@@ -10,7 +10,7 @@ services:
     image: nginx:1.23.1-alpine
     restart: always
     depends_on:
-      - bot
+      - botpress
     ports:
       - 80:80
       - 443:443
